@@ -135,6 +135,5 @@ export const GlobalStyles = createGlobalStyle`
   ul li {
     margin-right: 4px;
     margin-left: 24px;
-    list-style-type: '-'
   }
 `;
