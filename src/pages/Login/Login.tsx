@@ -44,14 +44,9 @@ export default function Login() {
           name="password"
           onChange={handlePassword}
         />
-
         <Button type="button" onClick={handleClick}>
           Login
         </Button>
-
-        {/* <button type="button" onClick={handleClick}>
-          Login
-        </button> */}
       </form>
     </Layout>
   );

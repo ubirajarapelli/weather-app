@@ -1,4 +1,4 @@
-import { StyledInput } from "./Input.stye";
+import { StyledInput, StyledLabel } from "./Input.stye";
 
 interface InputProps {
   type: string;
@@ -18,7 +18,7 @@ export const Input = ({
 }: InputProps) => {
   return (
     <>
-      <label htmlFor={id}>{label}</label>
+      <StyledLabel htmlFor={id}>{label}</StyledLabel>
       <StyledInput
         type={type}
         id={id}
