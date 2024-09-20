@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import UserContext from "../../context/UserCoxtext";
 import { Layout } from "../../components/Layout/Layout";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
-import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
+  const { setUserName } = useContext(UserContext);
+
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -31,11 +34,10 @@ export default function Login() {
       const data = await response.json();
 
       if (data) {
-        console.log(data);
-
         sessionStorage.setItem("userToken", JSON.stringify(data));
-        // const userName = jwtDecode(userToken.token);
-        // setName(userName.name);
+        const userData = jwtDecode(data.token);
+        setUserName(userData.name);
+
         navigate("/perfil");
       }
     } catch (error) {
