@@ -4,8 +4,10 @@ import { jwtDecode } from "jwt-decode";
 import UserContext from "../../context/UserCoxtext";
 import { Layout } from "../../components/Layout/Layout";
 import { Header } from "../../components/Header/Header";
+import { useVerifyLogin } from "../../helpers/useVefifyLogin";
 
 export default function Profile() {
+  useVerifyLogin();
   const navigate = useNavigate();
 
   const { userName, setUserName } = useContext(UserContext);
